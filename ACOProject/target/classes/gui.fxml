@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="663.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="obsluga">
+   <children>
+      <TabPane layoutX="-5.0" prefHeight="670.0" prefWidth="490.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Aco">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="641.0" prefWidth="467.0">
+                     <children>
+                        <TextField fx:id="aco_miasto" layoutX="146.0" layoutY="20.0" prefHeight="40.0" prefWidth="200.0" promptText="Wpisz miejscowosc" />
+                        <Button fx:id="aco_wyszukaj" layoutX="158.0" layoutY="370.0" mnemonicParsing="false" onAction="#aco_wyszukanie" prefHeight="44.0" prefWidth="186.0" text="Wyznacz najlepszą trasę">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <TextArea fx:id="aco_info" editable="false" layoutX="30.0" layoutY="450.0" prefHeight="132.0" prefWidth="441.0" />
+                        <Button fx:id="aco_szukaj" graphicTextGap="5.0" layoutX="178.0" layoutY="68.0" mnemonicParsing="false" onAction="#aco_szukanie" prefHeight="40.0" prefWidth="135.0" text="Szukaj">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <ListView fx:id="list1" layoutX="29.0" layoutY="153.0" onMouseClicked="#removeFromList" prefHeight="200.0" prefWidth="200.0" />
+                        <ListView fx:id="list2" layoutX="268.0" layoutY="153.0" onMouseClicked="#removeFromList" prefHeight="200.0" prefWidth="200.0" />
+                        <Text layoutX="289.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista wybranych miejscowości" wrappingWidth="158.13671875" />
+                        <Text layoutX="45.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lista miejscowości do wybrania" wrappingWidth="168.13671875" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab text="Ustawienia">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="ustawienia_c" alignment="CENTER" layoutX="36.0" layoutY="70.0" prefHeight="40.0" prefWidth="200.0" promptText="startowa wartość fermonów" text="1.0" />
+                        <TextField fx:id="ustawienia_alfa" alignment="CENTER" layoutX="36.0" layoutY="140.0" prefHeight="40.0" prefWidth="200.0" promptText="parametr kontrolujący wpływ feromonów" text="1.0" />
+                        <TextField fx:id="ustawienia_beta" alignment="CENTER" layoutX="36.0" layoutY="215.0" prefHeight="40.0" prefWidth="200.0" promptText="parametr kontrolujący wpływ długości pomiędzy miastami" text="5.0" />
+                        <TextField fx:id="ustawienia_ro" alignment="CENTER" layoutX="33.0" layoutY="288.0" prefHeight="40.0" prefWidth="200.0" promptText="współczynnik wyparowywania feromonów" text="0.5" />
+                        <TextField fx:id="ustawienia_q" alignment="CENTER" layoutX="254.0" layoutY="67.0" prefHeight="40.0" prefWidth="200.0" promptText="stała" text="500.0" />
+                        <TextField fx:id="ustawienia_randomfactor" alignment="CENTER" layoutX="257.0" layoutY="144.0" prefHeight="40.0" prefWidth="200.0" promptText="szansa na losowe miasto" text="0.1" />
+                        <TextField fx:id="ustawienia_antfactory" alignment="CENTER" layoutX="257.0" layoutY="215.0" prefHeight="40.0" prefWidth="200.0" promptText="wpółczynnik stosunku mrówek do miast" text="0.75" />
+                        <Button fx:id="parametry" layoutX="145.0" layoutY="366.0" mnemonicParsing="false" onAction="#ustaw_parametry" prefHeight="40.0" prefWidth="200.0" text="Ustaw parametry">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Text layoutX="128.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="c">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="117.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="alfa">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="116.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="beta">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="124.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ro">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="346.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Q">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="295.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="randomFactor">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="308.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="antFactory">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="ustawienia_info" layoutX="72.0" layoutY="443.0" prefHeight="119.0" prefWidth="346.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Wykres">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="416.0" prefWidth="651.0">
+                     <children>
+                        <TextField fx:id="wykres_start" alignment="CENTER" layoutX="143.0" layoutY="69.0" prefHeight="40.0" prefWidth="200.0" text="0.1" />
+                        <TextField fx:id="wykres_step" alignment="CENTER" layoutX="143.0" layoutY="140.0" prefHeight="40.0" prefWidth="200.0" text="0.1" />
+                        <TextField fx:id="wykres_stop" alignment="CENTER" layoutX="143.0" layoutY="217.0" prefHeight="40.0" prefWidth="200.0" text="2.0" />
+                        <Text layoutX="224.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="225.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Text layoutX="219.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stop">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Text>
+                        <Button fx:id="generuj_wykres" layoutX="143.0" layoutY="297.0" mnemonicParsing="false" onAction="#generuj" prefHeight="40.0" prefWidth="204.0" text="Generuj wykres">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
